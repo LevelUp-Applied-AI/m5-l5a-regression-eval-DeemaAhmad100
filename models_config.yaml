@@ -1,0 +1,42 @@
+# models_config.yaml
+
+models:
+  - name: LogisticRegression_Balanced
+    type: LogisticRegression
+    params:
+      random_state: 42
+      max_iter: 1000
+      class_weight: "balanced"
+      C: 1.0
+
+  - name: LogisticRegression_C01
+    type: LogisticRegression
+    params:
+      random_state: 42
+      max_iter: 1000
+      C: 0.1
+
+  - name: LogisticRegression_C10
+    type: LogisticRegression
+    params:
+      random_state: 42
+      max_iter: 1000
+      C: 10.0
+
+  - name: Ridge_Alpha1
+    type: Ridge
+    params:
+      alpha: 1.0
+      random_state: 42
+
+  - name: Ridge_Alpha10
+    type: Ridge
+    params:
+      alpha: 10.0
+      random_state: 42
+
+  - name: Lasso_Alpha01
+    type: Lasso
+    params:
+      alpha: 0.1
+      random_state: 42
