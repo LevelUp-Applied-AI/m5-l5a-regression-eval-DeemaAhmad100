@@ -38,26 +38,30 @@ def load_data():
 
 
 def split_data(df, target_col, test_size=0.2, random_state=42):
-    """Split data into train and test sets with stratification (for classification only)."""
+    """Split data into train and test sets.
+    Uses stratification only for classification targets (binary).
+    """
     X = df.drop(columns=[target_col])
     y = df[target_col]
+    
+    stratify_param = y if y.nunique() == 2 else None
     
     X_train, X_test, y_train, y_test = train_test_split(
         X, y,
         test_size=test_size,
         random_state=random_state,
-        stratify=y if y.nunique() <= 2 else None  
+        stratify=stratify_param
     )
     
     print(f"\n=== Split Summary for target: {target_col} ===")
     print(f"Train set: {X_train.shape[0]} rows")
     print(f"Test set : {X_test.shape[0]} rows")
-    if y.nunique() <= 2:
+    
+    if y.nunique() == 2:
         print(f"Train {target_col} rate: {y_train.mean():.4f}")
         print(f"Test {target_col} rate : {y_test.mean():.4f}")
     
     return X_train, X_test, y_train, y_test
-
 
 def build_logistic_pipeline():
     """Build a Pipeline with StandardScaler and LogisticRegression."""
