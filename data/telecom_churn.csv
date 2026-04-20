@@ -1,5 +1,5 @@
 customer_id,gender,senior_citizen,tenure,monthly_charges,total_charges,contract_type,internet_service,num_support_calls,payment_method,has_partner,has_dependents,churned
-PT-0001,Male,0,36,42.04,1349.78,Month-to-month,Fiber optic,0,Electronic check,0,0,1
+PT-0001, Male,0,36,42.04,1349.78,Month-to-month,Fiber optic,0,Electronic check,0,0,1
 PT-0002,Male,1,26,84.44,2328.04,Month-to-month,Fiber optic,1,Bank transfer,0,0,0
 PT-0003,Female,0,20,39.38,849.86,Month-to-month,Fiber optic,0,Bank transfer,0,1,0
 PT-0004,Male,0,11,69.68,842.22,One year,No,3,Mailed check,0,0,0

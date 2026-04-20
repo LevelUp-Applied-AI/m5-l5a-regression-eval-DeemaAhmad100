@@ -6,16 +6,18 @@ import numpy as np
 import sys
 import os
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "starter"))
+# Add parent directory to path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from lab_regression import (load_data, split_data, build_logistic_pipeline,
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+from starter.lab_regression import (load_data, split_data, build_logistic_pipeline,
                             build_ridge_pipeline, evaluate_classifier,
                             evaluate_regressor, run_cross_validation)
 
 
 @pytest.fixture
 def df():
-    data = load_data(os.path.join(os.path.dirname(__file__), "..", "starter", "data", "telecom_churn.csv"))
+    data = load_data(os.path.join(os.path.dirname(__file__), "..", "data", "telecom_churn.csv"))
     assert data is not None, "load_data returned None"
     return data
 
